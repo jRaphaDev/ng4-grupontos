@@ -16,16 +16,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    //this.offers = this.offersService.getOffers();
-
-    this.offersService.getOffersPromise()
+    this.offersService.getOffers()
       .then((offers: Offer[]) => {
-        console.log(' req de 3s ')
         this.offers = offers
       })
-      .catch(err => console.log(err) )
-
-    console.log(this.offers);
+      .catch(err => console.log(err))
   }
 
 }
