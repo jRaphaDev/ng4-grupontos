@@ -1,3 +1,4 @@
+import { URL_API } from './../app.api';
 import { Offer } from '../shared/offer.model';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -12,15 +13,21 @@ export class OffersService {
   public offers: Offer[] = [];
 
   public getOffers(): Promise<Offer[]> {
-    return this.http.get('http://localhost:3000/ofertas')
+    return this.http.get(URL_API)
       .toPromise()
       .then((response: any) => response.json());
   }
 
   public getOffersByCategory(category: string): Promise<Offer[]> {
-    return this.http.get(`http://localhost:3000/ofertas?categoria=${category}`)
+    return this.http.get(`${URL_API}?categoria=${category}`)
       .toPromise()
       .then((response: any) => response.json());
+  }
+
+  public getOfferById(id: number): Promise<Offer> {
+    return this.http.get(`${URL_API}/${id}`)
+    .toPromise()
+    .then((response: any) => response.json());
   }
 
 }
