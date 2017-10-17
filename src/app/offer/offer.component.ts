@@ -2,6 +2,8 @@ import { Offer } from './../shared/offer.model';
 import { OffersService } from './../shared/offers.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs/Observable";
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-offer',
@@ -20,6 +22,7 @@ export class OfferComponent implements OnInit {
   ngOnInit() {
     this.offerService.getOfferById(this.route.snapshot.params['id'])
       .then((offer: Offer) => this.offer = offer);
+
   }
 
 }
