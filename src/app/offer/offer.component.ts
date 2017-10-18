@@ -23,21 +23,6 @@ export class OfferComponent implements OnInit {
   ngOnInit() {
     this.offerService.getOfferById(this.route.snapshot.params['id'])
       .then((offer: Offer) => this.offer = offer);
-
-    //observavel
-    let myObservable = Observable.create((observer: Observer<number>) => {
-      observer.next(1)
-      observer.complete()
-      observer.error('some err was found')
-    })
-
-    //observador
-    myObservable.subscribe(
-      (result: any) => console.log(result + 10),
-      (err: any) => console.log(err),
-      () =>  console.log('completed')
-    )
-
   }
 
 }
