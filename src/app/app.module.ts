@@ -14,6 +14,7 @@ import { ROUTES } from './app.routes';
 import { OfferComponent } from './offer/offer.component';
 import { HowToUseComponent } from './offer/how-to-use/how-to-use.component';
 import { WhereIsComponent } from './offer/where-is/where-is.component';
+import { OrderServiceComponent } from './order-service/order-service.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { WhereIsComponent } from './offer/where-is/where-is.component';
     EntertainmentComponent,
     OfferComponent,
     HowToUseComponent,
-    WhereIsComponent
+    WhereIsComponent,
+    OrderServiceComponent
   ],
   imports: [
     BrowserModule,

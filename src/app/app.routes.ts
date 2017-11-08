@@ -6,6 +6,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { EntertainmentComponent } from './entertainment/entertainment.component';
+import { OrderServiceComponent } from './order-service/order-service.component';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -17,5 +18,6 @@ export const ROUTES: Routes = [
       { path: 'how-to-use', component: HowToUseComponent },
       { path: 'where-is', component: WhereIsComponent }
     ]
-  }
+  },
+  { path: 'order-service', component: OrderServiceComponent }
 ];
