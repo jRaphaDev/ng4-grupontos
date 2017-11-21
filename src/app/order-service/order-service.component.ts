@@ -26,6 +26,7 @@ export class OrderServiceComponent implements OnInit {
     public payWayPristine: boolean = true;
 
     public formValid: string = 'disabled';
+    private idOrderService: number;
 
     constructor(private orderServiceService: OrderServiceService) { }
 
@@ -61,19 +62,23 @@ export class OrderServiceComponent implements OnInit {
     }
 
     enabledForm(): void {
-        this.formValid = ( this.addressValid && this.numberValid && this.payWayValid ) ? '' : 'disabled';
+        this.formValid =
+        ( this.addressValid && this.numberValid && this.payWayValid ) ? '' : 'disabled';
     }
 
     confirmBuy(): void {
 
         let orderService = new OrderService(
-          this.address, 
-          this.number, 
-          this.complement, 
+          this.address,
+          this.number,
+          this.complement,
           this.payWay);
 
         this.orderServiceService.buy(orderService)
-          .subscribe();
+          .subscribe((idOrderService: number) =>{
+              console.log(idOrderService)
+            this.idOrderService = idOrderService;
+          });
     }
 
 }

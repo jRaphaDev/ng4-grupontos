@@ -11,18 +11,16 @@ import { URL_API_ORDER_SERVICE } from '../app.api';
 export class OrderServiceService {
 
   constructor(private http: Http) { }
-  
+
   public buy(order: OrderService): Observable<any> {
-      console.log('cheguei', order)
 
       let headers: Headers = new Headers();
       headers.append('Content-type', 'application-json');
 
-      return this.http.post(URL_API_ORDER_SERVICE,
-          JSON.stringify(order),
-          new RequestOptions({ headers: headers })
-      ).map((res: Response) => {
-        console.log(res.json());
-      })
+      return this.http.post(URL_API_ORDER_SERVICE, JSON.stringify(order),
+        new RequestOptions({ headers: headers }))
+        .map((res: Response) => {
+          return res.json().id;
+      });
   }
 }
